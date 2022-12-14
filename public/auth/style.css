@@ -1,0 +1,561 @@
+*{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.body{
+    background: linear-gradient(to bottom right, #ffdfc0 0%, #ffffff 70%);
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.image-container{
+    /* background: url('/./logo.png') center no-repeat; */
+    background-size: cover;
+    /* background-color: #fe8103; */
+    height: 100vh;
+    /* border: 10px solid #fe8103 ; */
+}
+
+.all{
+    margin-left: 25%;
+    /* background-color: #f3efef; */
+}
+b{
+    color: red;
+}
+label{
+    color:#e77400;
+    margin-bottom: 0 !important;
+
+}
+/* .rows input{
+    padding: 10px !important;
+} */
+
+.all2{
+    margin-left: 15%;
+    /* background-color: #f3efef; */
+    
+
+}
+/* .but{
+    align-items: center;
+    margin-left: 20%;
+    padding:5px 80px !important;
+    } */
+    
+.ho{
+    background-color:#ffffff;
+}
+@media (max-width: 992px) {
+    .all {
+        margin-left: 0;
+    }
+    .all2{
+        margin-left: 0;
+    }
+    
+    
+}
+@media (max-width: 320px) {
+
+    .but{
+        margin-left:4%
+        /* padding:5px 60px !important; */
+    }
+    
+}
+/* #dob{
+    text-align: center;
+} */
+.form-error {
+
+    border: 2px solid red !important;
+  }
+       
+      
+      
+      .image-container img{
+
+    width: 300px;
+    height: 300px;
+}
+
+.form-block{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.form-box{
+    border: 1px solid #fe8103;
+    border-top-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-box h4 {
+    font-weight: bold;
+    color: #fe8103;
+    font-size: 16px;
+
+}
+.alert{
+    display: block !important;
+}
+.form-box .form-input {
+    position: relative;
+}
+
+.form-box .form-input input {
+    width: 100%;
+    height: 40px;
+    margin-bottom: 20px;    
+    box-sizing: border-box;
+    box-shadow: none;
+    border: 1px solid grey;
+    border-radius: 20px;
+    outline: none;
+    color: black;
+    background: transparent;   
+    padding-left: 40px;
+}
+
+.form-box .form-input span {
+    position: absolute;
+    top: 8px;
+    padding-left: 15px;
+    color: #ff6347;
+}
+
+.form-box .form-input input::placeholder {
+    color: black;
+    padding-left: 0px;
+}
+
+.form-box .form-input input:focus,
+.form-box .form-input input:valid {
+    border: 1px solid #ff6347;
+}
+
+.form-box .form-input input:focus::placeholder {
+    color: #454b69;
+}
+
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+  background-color: #fe8103 !important;
+  border:0px;
+}
+
+.form-box button[type="submit"] {
+    margin-top: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+    background: linear-gradient(45deg, #fe8103, #fb8a76);
+    color: #fff;
+    font-weight: bold;
+    transition: 0.5s;
+}
+
+.form-box button[type="submit"]:hover {
+    background: linear-gradient(45deg, #fb8a76, #fe8103);
+}
+
+.forget-link , .login-link , .register-link {
+    color: #e77400;
+    /* font-weight: bold; */
+}
+
+
+.forget-link:hover , .login-link:hover , .register-link:hover {
+    color: #fe8103;
+    text-decoration: none;
+}
+
+.form-box .btn-social {
+    color: white;
+    border: 0;
+}
+
+.form-box .btn-facebook {
+    background: #4866a8;
+}
+
+.form-box .btn-google {
+    background: #da3f34;
+}
+
+.form-box .btn-twitter {
+    background: #33ccff;
+}
+
+.form-box .btn-facebook:hover {
+    color: white;
+    background: hsla(221, 40%, 40%, 1);
+}
+
+.form-box .btn-google:hover {
+    color: white;
+    background: hsla(4, 59%, 47%, 1);
+}
+
+.form-box .btn-twitter:hover {
+    color: white;
+    background: hsla(195, 78%, 54%, 1);
+}
+
+
+
+
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+/* css class for the registration form generated errors */
+
+.profilepress-reg-status {
+  border-radius: 6px;
+  font-size: 17px;
+  line-height: 1.471;
+  padding: 10px 19px;
+  background-color: #e74c3c;
+  color: #ffffff;
+  font-weight: normal;
+  display: block;
+  text-align: center;
+  /* vertical-align: middle; */
+  margin: 5px 0;
+}
+/*form styles*/
+
+@media (min-width: 1024px) {
+
+    #msform {
+        width: 100% !important;
+        margin: 1px auto 430px !important;
+        position: relative !important;
+      }
+    
+}
+#msform {
+  width: 100%;
+  margin: 1px auto 650px;
+  position: relative;
+}
+select{
+    width: 100%;
+    padding: 10px !important;
+    border:1px solid grey;
+    background-color: white;
+    color: #e77400;
+}
+
+select:focus {
+    border: 1px solid #ff6347;
+    background-color: white;
+}
+
+
+select option{
+    padding: 10px !important;
+    margin: 5px !important;
+    color: #fe8103;
+    font-size: 16px;
+}
+
+#form .select{
+    padding: 20px !important;
+}
+.col-6 {
+    -ms-flex: 0 0 50% !important;
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+}
+
+label{
+align-items: flex-start !important;
+    text-align: start !important;
+padding: 0;
+margin: 0;
+
+}
+
+#msform fieldset {
+  background: white;
+  border: 0 none;
+  border-radius: 3px;
+  /* box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.4); */
+  padding: 5px 0;
+  box-sizing: border-box;
+  width: 90%;
+  margin: 0 5%;
+  /*stacking fieldsets above each other*/
+  
+  position: absolute;
+}
+/*Hide all except first fieldset*/
+
+#msform fieldset:not(:first-of-type) {
+  display: none;
+}
+/*inputs*/
+#msform input:focus {
+    border: 1px solid #ff6347;
+}
+
+#msform input,
+#msform textarea {
+  padding: 15px;
+  border: 1px solid grey;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: montserrat;
+  color: #000000;
+  font-size: 13px;
+}
+/*buttons*/
+
+#msform .action-button {
+  width: 100px;
+  background: #fe8103;
+  font-weight: bold;
+  color: white;
+  border: 0 none;
+  border-radius: 1px;
+  cursor: pointer;
+  padding: 10px 5px;
+  margin: 10px 5px;
+}
+
+#msform .action-button:hover,
+#msform .action-button:focus {
+  box-shadow: 0 0 0 2px white, 0 0 0 3px #fe8103;
+}
+/*headings*/
+
+.fs-title {
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #2C3E50;
+  margin-bottom: 10px;
+}
+
+.fs-subtitle {
+  font-weight: normal;
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 15px;
+}
+/*progressbar*/
+
+#progressbar {
+    margin-top: 0;
+  margin-bottom: 5px;
+  overflow: hidden;
+  padding-inline-start: 10px !important;
+  /*CSS counters to number the steps*/
+  
+  counter-reset: step;
+}
+
+
+#progressbar li {
+  list-style-type: none;
+  color: #616161;
+  text-transform: uppercase;
+  font-size: 12px;
+  width: 50%;
+  float: left;
+  position: relative;
+  margin: 0 auto 10px auto;
+  padding-right: 5%;
+  text-align: center;
+
+
+}
+strong{
+    text-transform: uppercase;
+}
+
+.float{
+	position:relative;
+	width:50px;
+	height:25px;
+	top:20px;
+	left:80%;
+	background-color:rgb(243, 168, 29);
+	color:#FFF;
+	border-radius:5px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+}
+.float i:hover{
+color: white;
+}
+.my-float{
+	margin-top:22px;
+}
+
+
+hr.solid {
+    border-top: 2px solid rgb(151, 151, 151);
+    margin: 0;
+  }
+.list{
+    margin: 10%;
+}
+.list p{
+    padding-left: 5px !important;
+    margin: 3px !important;
+    color: rgb(112, 112, 112);
+    text-align: left;
+}
+
+.fa{
+    font: weight 2px !important;
+}
+/* .btn{
+    margin-left: 40%;
+    padding: 2%;
+} */
+
+.guideline{
+    /* text-align: center; */
+    padding-top: 2%;    
+    color: #fe8103;
+    margin-left: 20%;
+    margin-right: 20%;
+
+}
+.guideline li{
+    list-style: decimal;
+    font-size: 20px !important;
+}
+
+.row {
+    /* display: flex; */
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+
+  }
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Create two equal columns that sits next to each other */
+  .column {
+    width: 48%;
+    /* padding: 5px; */
+    height:max-content;
+    /* border: 2px solid green; */
+    background-color: white; /* Should be removed. Only for demonstration */
+    margin-right: 2%;
+    box-shadow: 5px 5px 10px 6px #e7e6e6;
+    text-align: center;
+    border-radius: 20px;
+    overflow:hidden;
+
+  }
+  .roll{
+    margin-top: 25%;
+  }
+  .column h2{
+    background-color: rgb(11, 179, 11);
+    padding: 5%;
+    color: white;
+  }
+
+  .column h2 p{
+    color: white;
+    font-size: 20px;
+  }
+.column #h1{
+    color:  rgb(11, 179, 11);
+}
+#h1 span{
+    font-size: 100px;
+}
+.column #h2{
+    color:   rgb(50, 132, 226);
+}
+#h2 span{
+    font-size: 100px;
+}
+
+  .column #h{
+    background-color: rgb(50, 132, 226);
+  }
+/* #progressbar ul{
+    margin-right: 0 !important;
+    padding-right: 0 !important;
+} */
+
+
+
+@media (max-width: 700px) {
+
+    .row {
+        display: flex;
+        padding: 0%;
+        padding: 2%;
+    
+      }
+.column{
+    flex: 100%;
+    /* padding: 5px; */
+    height: auto;
+    /* border: 2px solid green; */
+    background-color: white; /* Should be removed. Only for demonstration */
+    margin: 1%;
+    box-shadow: 4px 2px 12px 4px #e7e6e6;
+    text-align: center;
+}.list{
+    margin: 5%;
+}
+.guideline{
+    /* text-align: center; */
+    padding-top: 2%;    
+    color: #fe8103;
+    margin-left: 5%;
+    margin-right: 5%;
+
+}
+    
+}
+
+#progressbar li:before {
+  content: counter(step);
+  counter-increment: step;
+  width: 20px;
+  line-height: 20px;
+  display: block;
+  font-size: 15px;
+  color: #333;
+  background: white;
+  border-radius: 3px;
+  margin: 0 auto 5px auto;
+  text-align: center;
+
+}
+
+#progressbar li:first-child:after {
+  /*connector not needed before the first step*/
+  
+  content: none;
+}
+/*marking active/completed steps green*/
+/*The number of the step and the connector before it = green*/
+
+#progressbar li.active:before,
+#progressbar li.active:after {
+  background: #fe8103;
+  color: white;
+}
