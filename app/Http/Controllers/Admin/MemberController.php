@@ -245,8 +245,11 @@ class MemberController extends Controller
 
     public function user_create($mid){
 
+
         $pass = "12345678";
         $data = Member::find($mid);
+
+        
         $role = $data->membership_type;
 
         $user = new User ;

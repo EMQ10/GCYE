@@ -73,26 +73,33 @@ Route::group(['middleware' => ['role:Superadmin']], function(){
     Route::resource('roles', RoleController::class);
     Route::resource('permissions', PermissionController::class);
     Route::get('/superadmin', [SuperAdminController::class, 'index'])->name('superadmin');
+
+
 });
+
+
+Route::resource('users', UserController::class);
+Route::get('/User/create/{mid}',[MemberController::class,'user_create'])->name('user.create');
+
+Route::get('/members',[MemberController::class,'members_list'])->name('members.list');
+Route::get('/members/starter', [MemberController::class, 'members_starter'])->name('members.starter');
+Route::get('/members/business', [MemberController::class, 'members_business'])->name('members.business');
+
+Route::get('/member/dues_list',[MemberController::class,'dues_list'])->name('member.dues');
+
+Route::get('/member/registration_list',[MemberController::class,'reg_list'])->name('member.reg');
+// Route::get('/member/dues_approval/{id}',[MemberController::class,'dues_approve'])->name('dues.approval');
+
+Route::get('/member/reg_approval/{mid}',[MemberController::class,'reg_approve'])->name('reg.approval');
+
+Route::get('sms', [MemberController::class, 'payment'])->name('sms');
+
+
 
 Route::group(['middleware' => ['role:Admin']], function () {
     
-    // Route::resource('posts', PostController::class);
     Route::get('/admin',[AdminController::class,'index'])->name('admin');
-    Route::get('/members',[MemberController::class,'members_list'])->name('members.list');
-    Route::get('/members/starter', [MemberController::class, 'members_starter'])->name('members.starter');
-    Route::get('/members/business', [MemberController::class, 'members_business'])->name('members.business');
 
-    Route::get('/member/dues_list',[MemberController::class,'dues_list'])->name('member.dues');
-
-    Route::get('/member/registration_list',[MemberController::class,'reg_list'])->name('member.reg');
-    // Route::get('/member/dues_approval/{id}',[MemberController::class,'dues_approve'])->name('dues.approval');
-
-    Route::get('/member/reg_approval/{mid}',[MemberController::class,'reg_approve'])->name('reg.approval');
-
-
-    Route::get('/User/create/{mid}',[MemberController::class,'user_create'])->name('user.create');
-    Route::get('sms', [MemberController::class, 'payment'])->name('sms');
 
 
 });
@@ -118,6 +125,8 @@ Route::put('member/update/{mid}', [MemberController::class, 'update'])->name('me
 Route::post('file/store/{mid}', [MemberController::class, 'file_store'])->name('file.store');
 Route::get('/display_pdf/{mid}',[MemberController::class, 'pdf'])->name('pdf');
 Route::get('/events',[EventController::class, 'index'])->name('event.index');
+Route::get('event/detail/{id}', [EventController::class, 'details'])->name('details');
+Route::get('/events/{title}',[EventController::class, 'show'])->name('event.show');
 
 // business
 Route::group(['middleware' => ['role:Business']], function() {

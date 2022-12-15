@@ -18,16 +18,16 @@
 				<a href="{{ route('profile') }}" class="nav-link"><i class="flaticon-user"></i><span>Profile</span></a>	
 			</li>
 			 <li class="nav-item  ">
-				<a href="#" class="nav-link"><i class="flaticon-dashboard"></i><span>Events & Projects</span></a>	
+				{{-- <a href="#" class="nav-link"><i class="flaticon-dashboard"></i><span>Events & Projects</span></a>	 --}}
 			</li>
 			<li  class="nav-item  ">
-				<a href="#" class="nav-link"><i class="flaticon-dashboard"></i><span>Renew / Dues Payment</span></a>
+				{{-- <a href="#" class="nav-link"><i class="flaticon-dashboard"></i><span>Renew / Dues Payment</span></a> --}}
 			</li>
 			<li  class="nav-item  " >
-				<a href="#" class="nav-link"><i class="flaticon-dashboard"></i><span>Help Desk</span></a>
+				{{-- <a href="#" class="nav-link"><i class="flaticon-dashboard"></i><span>Help Desk</span></a> --}}
 			</li>
 			<li  class="nav-item  " >
-				<a href="#" class="nav-link"><i class="flaticon-dashboard"></i><span>Yess Fund</span></a>
+				{{-- <a href="#" class="nav-link"><i class="flaticon-dashboard"></i><span>Yess Fund</span></a> --}}
 			</li>
 
 		 </ul>

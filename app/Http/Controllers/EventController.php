@@ -55,9 +55,29 @@ class EventController extends Controller
      * @param  \App\Models\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function show(Event $event)
+    public function show($id)
     {
         //
+
+        $event = Event::find($id);
+
+        dd($event);
+        $user = Auth::User();
+        $mid = $user->member_mid;
+        $member = Member::find($mid);
+        $member->load('business');
+        return view ('business.show',compact('event','member'));
+
+
+    }
+
+    public function details($id){
+
+        $user = Auth::User();
+        $mid = $user->member_mid;
+        $member = Member::find($mid);
+        return view ('business.details',compact('event','member'));
+
     }
 
     /**

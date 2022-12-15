@@ -5,7 +5,7 @@
     <!-- Breadcubs Area End Here -->
     <!-- Dashboard summery Start Here -->
     <div class="row gutters-20">
-      <div class="col-xl-3 col-sm-6 col-12">
+      {{-- <div class="col-xl-3 col-sm-6 col-12">
           <div class="dashboard-summery-one mg-b-20">
               <div class="row align-items-center">
                   <div class="col-6">
@@ -15,7 +15,7 @@
                   </div>
                   <div class="col-6">
                       <div class="item-content">
-                          <div class="item-title">Students</div>
+                          <div class="item-title">Registration approval</div>
                           <div class="item-number"><span class="counter" data-num="150000">1,50,000</span></div>
                       </div>
                   </div>
@@ -32,7 +32,7 @@
                   </div>
                   <div class="col-6">
                       <div class="item-content">
-                          <div class="item-title">Teachers</div>
+                          <div class="item-title">First Dues approval</div>
                           <div class="item-number"><span class="counter" data-num="2250">2,250</span></div>
                       </div>
                   </div>
@@ -49,40 +49,123 @@
                   </div>
                   <div class="col-6">
                       <div class="item-content">
-                          <div class="item-title">Parents</div>
+                          <div class="item-title">Business Members</div>
                           <div class="item-number"><span class="counter" data-num="5690">5,690</span></div>
                       </div>
                   </div>
               </div>
           </div>
       </div>
+
       <div class="col-xl-3 col-sm-6 col-12">
-          <div class="dashboard-summery-one mg-b-20">
-              <div class="row align-items-center">
-                  <div class="col-6">
-                      <div class="item-icon bg-light-red">
-                          <i class="flaticon-money text-red"></i>
-                      </div>
-                  </div>
-                  <div class="col-6">
-                      <div class="item-content">
-                          <div class="item-title">Earnings</div>
-                          <div class="item-number"><span>$</span><span class="counter" data-num="193000">1,93,000</span></div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
+        <div class="dashboard-summery-one mg-b-20">
+            <div class="row align-items-center">
+                <div class="col-6">
+                    <div class="item-icon bg-light-green ">
+                        <i class="flaticon-classmates text-green"></i>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="item-content">
+                        <div class="item-title">Starter Members</div>
+                        <div class="item-number"><span class="counter" data-num="150000">1,50,000</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> --}}
+
+    
+      
+    </div>
+
+    <div class="card height-auto">
+        <div class="card-body">
+            <div class="heading-layout1">
+                <div class="item-title">
+                    <h3>ALL USERS</h3>
+                </div>
+               <div class="dropdown">
+                    <a class="dropdown-toggle" href="#" role="button" 
+                    data-toggle="dropdown" aria-expanded="false">...</a>
+
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="#"><i class="fas fa-times text-orange-red"></i>Close</a>
+                        <a class="dropdown-item" href="#"><i class="fas fa-cogs text-dark-pastel-green"></i>Edit</a>
+                        <a class="dropdown-item" href="#"><i class="fas fa-redo-alt text-orange-peel"></i>Refresh</a>
+                    </div>
+                </div>
+            </div>
+            <form class="mg-b-20">
+                <div class="row gutters-8">
+                    <div class="col-3-xxxl col-xl-3 col-lg-3 col-12 form-group">
+                        <input type="text" placeholder="Search by ID ..." class="form-control">
+                    </div>
+                    <div class="col-4-xxxl col-xl-4 col-lg-3 col-12 form-group">
+                        <input type="text" placeholder="Search by Name ..." class="form-control">
+                    </div>
+                    <div class="col-4-xxxl col-xl-3 col-lg-3 col-12 form-group">
+                        <input type="text" placeholder="Search by Phone" class="form-control">
+                    </div>
+                    <div class="col-1-xxxl col-xl-2 col-lg-3 col-12 form-group">
+                        <button type="submit" class="fw-btn-fill btn-gradient-yellow">SEARCH</button>
+                    </div>
+                </div>
+            </form>
+            <div class="table-responsive">
+                <table class="table data-table text-nowrap">
+                    <thead>
+                        <tr>
+                            <th>Member ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Roles</th>
+                            <th width="280px">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($data as $key => $user)
+                        <tr>
+                            <td>{{ $user->member_mid }}</td>
+                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->email }}</td>
+                            <td>
+                                @if(!empty($user->getRoleNames()))
+                                    @foreach($user->getRoleNames() as $val)
+                                        <label class="badge ">{{ $val }}</label>
+                                    @endforeach
+                                @endif
+                            </td>
+                            <td>
+                                <a class="btn btn-success" href="{{ route('users.show',$user->id) }}">Show</a>
+                                @can('user-edit')
+                                    <a class="btn btn-primary" href="{{ route('users.edit',$user->id) }}">Edit</a>
+                                @endcan
+                                @can('user-delete')
+                                    {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline']) !!}
+                                    {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                                    {!! Form::close() !!}
+                                @endcan
+                            </td>
+                        </tr>
+
+                    @endforeach
+                    </tbody>
+                </table>
+                {{ $data->render() }}
+
+            </div>
+        </div>
     </div>
     <!-- Dashboard summery End Here -->
     <!-- Dashboard Content Start Here -->
-    <div class="row gutters-20">
+    {{-- <div class="row gutters-20">
       <div class="col-12 col-xl-8 col-6-xxxl">
           <div class="card dashboard-card-one pd-b-20">
               <div class="card-body">
                   <div class="heading-layout1">
                       <div class="item-title">
-                          <h3>Earnings</h3>
+                          <h3>Business Members</h3>
                       </div>
                       <div class="dropdown">
                           <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown"
@@ -171,7 +254,7 @@
               <div class="card-body">
                   <div class="heading-layout1">
                       <div class="item-title">
-                          <h3>Students</h3>
+                          <h3>Registration approval</h3>
                       </div>
                       <div class="dropdown">
                           <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown"
@@ -192,11 +275,11 @@
                   </div>
                   <div class="student-report">
                       <div class="student-count pseudo-bg-blue">
-                          <h4 class="item-title">Female Students</h4>
+                          <h4 class="item-title">Female Registration approval</h4>
                           <div class="item-number">45,000</div>
                       </div>
                       <div class="student-count pseudo-bg-yellow">
-                          <h4 class="item-title">Male Students</h4>
+                          <h4 class="item-title">Male Registration approval</h4>
                           <div class="item-number">1,05,000</div>
                       </div>
                   </div>
@@ -350,10 +433,10 @@
               </div>
           </div>
       </div>
-    </div>
+    </div> --}}
     <!-- Dashboard Content End Here -->
     <!-- Social Media Start Here -->
-    <div class="row gutters-20">
+    {{-- <div class="row gutters-20">
       <div class="col-lg-3 col-sm-6 col-12">
           <div class="card dashboard-card-seven">
               <div class="social-media bg-fb hover-fb">
@@ -414,7 +497,7 @@
               </div>
           </div>
       </div>
-    </div>
+    </div> --}}
 
 @endsection
 

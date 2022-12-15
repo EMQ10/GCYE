@@ -8,7 +8,7 @@ use Auth;
 use App\Models\Member;
 use App\Models\User;
 use App\Models\Business;
-
+use App\Models\Event;
 
 
 class DashboardController extends Controller
@@ -27,12 +27,25 @@ class DashboardController extends Controller
        $user = Auth::User();
        $mid = $user->member_mid;
        $member = Member::find($mid);
+
+       $events = Event::all();
         // dd($member);
-        return view ('starter.dashboard',compact('member'));
+        return view ('business.dashboard',compact('member','events'));
 
 
     }
 
+    public function profile(){
+        //
+    $user = Auth::User();
+    $mid = $user->member_mid;
+    $member = Member::find($mid);
+    $member->load('business');
+
+     // dd($member);
+     return view ('business.profile',compact('member'));
+
+  }
 
     /**
      * Show the form for creating a new resource.

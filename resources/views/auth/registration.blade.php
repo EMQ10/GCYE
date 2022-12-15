@@ -114,7 +114,7 @@
                                 <div class="col-xl-6 col-lg-6 col-12 mt-3 form-input" >
 
                                 <div class="text-center mb-3">
-                                    Don't have an account?
+                                    Have an account?
                                 </div>
                                 <div class="text-center mb-2 pb-2">
                                     <a class="register-link btn btn-success" href="/login"> Login </a>

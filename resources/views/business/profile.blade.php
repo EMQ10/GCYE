@@ -28,7 +28,6 @@
                             <img src="/images/{{$member->image}}" alt="student">
                             @endif
 
-                            @if ($member->image == null)
                             <div class="mt-4">
                                 <form action="{{ route('image-upload.post',$member->mid) }}" method="POST" enctype="multipart/form-data">
                                     @csrf
@@ -48,7 +47,6 @@
                                     </div>
                                 </form>
                             </div>
-                            @endif
 
                         </div>
                         
@@ -262,12 +260,15 @@
                                                         <input  type="text" name="mid" value="{{ $member->mid }}" class="form-control" />
                                                     </div>
                                                     <div class="form-group col-12">
+                                                        <label>Name of Company/Organization</label>
                                                         <input  type="text" name="company" placeholder="Name of Company/Organization" class="form-control" />
                                                     </div>
                                                     <div class="form-group col-12">
+                                                        <label>Company Registration Number</label>
                                                         <input type="text" name="reg_number" placeholder="Company Registration Number" class="form-control">
                                                     </div>
                                                     <div class="form-group col-sm-12">
+                                                        <label>Business Ownership Type</label>
                                                         <select name="ownership_type" class="form-control" class="select">
                                                             <option value="Select Ownership Type">Select Business Ownership Type</option>
                                                             <option value="Co-Operative ">Co-Operative </option>
@@ -279,17 +280,22 @@
                                                     </select>
                                                     </div>
                                                     <div class="form-group col-sm-12">
+                                                        <label>Business Telephone</label>
                                                         <input type="text" name="telephone" placeholder="Business Telephone" class="form-control">
                                                     </div>
                                                     <div class="form-group col-12">
+                                                        <label>Business Email</label>
                                                         <input type="text" name="business_email" placeholder="Business Email" class="form-control">
                                                     </div><div class="form-group col-12">
+                                                        <label>Business Website(if any)</label>
                                                         <input type="text" name="website" placeholder="Business Website(if any)" class="form-control">
                                                     </div>
                                                     <div class="form-group col-12">
+                                                        <label>Business Address</label>
                                                         <textarea type="text" cols="50" rows="10" name="address" placeholder="Business Address" class="form-control"></textarea>
                                                     </div>
                                                     <div class="form-group col-12">
+                                                        <label>Activities of Company/Group</label>
                                                         <textarea type="text" cols="50" rows="10" name="activity" placeholder="Activities of Company/Group" class="form-control"></textarea>
                                                     </div>
 
@@ -309,12 +315,15 @@
                                                         <input  type="text" name="mid" value="{{ $member->mid }}" class="form-control" />
                                                     </div>
                                                     <div class="form-group col-12">
+                                                        <label>Name of Company/Organization</label>
                                                         <input  type="text" name="company" value="{{ $member->business->company }}" placeholder="Name of Company/Organization" class="form-control" />
                                                     </div>
                                                     <div class="form-group col-12">
+                                                        <label>Company Registration Number</label>
                                                         <input type="text" name="reg_number" value="{{ $member->business->reg_number }}" placeholder="Company Registration Number" class="form-control">
                                                     </div>
                                                     <div class="form-group col-sm-12">
+                                                        <label>Business Ownership Type</label>
                                                         <select name="ownership_type" class="form-control" class="select">
                                                             <option value="Select Ownership Type">Select Business Ownership Type</option>
                                                             <option value="Co-Operative ">Co-Operative </option>
@@ -326,18 +335,23 @@
                                                     </select>
                                                     </div>
                                                     <div class="form-group col-sm-12">
+                                                        <label>Business Telephone</label>
                                                         <input type="text" name="telephone" value="{{ $member->business->telephone }}" placeholder="Business Telephone" class="form-control">
                                                     </div>
                                                     <div class="form-group col-12">
+                                                        <label>Business Email</label>
                                                         <input type="text" name="business_email" value="{{ $member->business->business_email }}" placeholder="Business Email" class="form-control">
                                                     </div>
                                                     <div class="form-group col-12">
+                                                        <label>Business Website(if any)</label>
                                                         <input type="text" name="website" value="{{ $member->business->website }}" placeholder="Business Website(if any)" class="form-control">
                                                     </div>
                                                     <div class="form-group col-12">
+                                                        <label>Business Address</label>
                                                         <input type="text" style="height: 50px" name="address" value="{{ $member->business->address}}" class="form-control">
                                                     </div>
                                                     <div class="form-group col-12">
+                                                        <label>Activities of Company/Group</label>
                                                         <input type="text" name="activity" value="{{ $member->business->activity }}" class="form-control">
                                                     </div>
                                                    

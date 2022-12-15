@@ -20,8 +20,9 @@ class SuperAdminController extends Controller
     {
         //
         $members = Member::all();
+        $data = User::orderBy('id', 'desc')->paginate(5);
 
-        return view ('superadmin.index',compact('members'));
+        return view ('superadmin.index',compact('members','data'));
     }
 
     /**

@@ -98,7 +98,7 @@
     @foreach ($events as $event)
 
                 <div class="column5">
-                    <a href="">
+                    <a href="{{ route('details',$event->id) }}">
 
                   <div class="card5">
                     <img src="images/1670160939.png" alt="Jane" style="width:100%;height:230px">
