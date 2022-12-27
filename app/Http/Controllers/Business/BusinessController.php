@@ -9,7 +9,7 @@ use Auth;
 use App\Models\Member;
 use App\Models\User;
 use App\Models\Business;
-use App\Models\Event;
+use App\Models\Project;
 
 
 
@@ -31,9 +31,9 @@ class BusinessController extends Controller
        $mid = $user->member_mid;
        $member = Member::find($mid);
 
-       $events = Event::all();
-        // dd($member);
-        return view ('business.dashboard',compact('member','events'));
+       $projects = Project::orderBy('id', 'desc')->paginate(3);
+       // dd($member);
+        return view ('business.dashboard',compact('member','projects'));
 
 
     }

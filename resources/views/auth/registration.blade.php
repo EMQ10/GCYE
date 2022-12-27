@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 </head>
 
@@ -67,12 +67,8 @@
                                     <input id="date" type="text" name="dob" class="{{($errors->first('dob') ? " form-error" : "")}}" />
                                    
                                 </div>
-                                <div class="col-xl-6 col-lg-6 col-12 form-input">
-                                    <label>Designation/Position <b>*</b></label>
-                                    <input   type="text" name="position" class="{{($errors->first('position') ? " form-error" : "")}}" />
                                 
-                                </div>
-                                <div class="col-xl-6 col-lg-6 col-12 form-input">
+                                <div class="col-xl-12 col-lg-12 col-12 form-input">
                                     <label >Email (Most Active) <b>*</b></label>
                                     <input  type="email" name="email" class="{{($errors->first('email') ? " form-error" : "")}}"  />
                                     @error('email')
@@ -145,7 +141,7 @@ function checkValue(str, max) {
 date.addEventListener('input', function(e) {
   this.type = 'text';
 
-//   to limit year to 12 yeaars younger than today
+//   to limit year to 18 yeaars younger than today
     var today = new Date();
     var yyyy = today.getFullYear();
     maximum = yyyy - 18;
@@ -163,7 +159,7 @@ date.addEventListener('input', function(e) {
   });
   this.value = output.join('').substr(0, 14);
 });
-console.log(date);
+// console.log(date);
 
 
 

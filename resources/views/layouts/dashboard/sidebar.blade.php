@@ -7,7 +7,8 @@
 	 <div class="sidebar-menu-content">
 		 <ul class="nav nav-sidebar-menu sidebar-toggle-view">
 			 <li class="nav-item  ">
-				@if ($member->membership_type == 'Starter')
+				@if ( Auth::user()->roles == 'Starter')
+				{{-- @if ($member->membership_type == 'Starter') --}}
 				<a href="{{ route('starter') }}" class="nav-link"><i class="flaticon-dashboard"></i><span>Dashboard</span></a>
 				@else
 				<a href="{{ route('business') }}" class="nav-link"><i class="flaticon-dashboard"></i><span>Dashboard</span></a>
@@ -18,16 +19,30 @@
 				<a href="{{ route('profile') }}" class="nav-link"><i class="flaticon-user"></i><span>Profile</span></a>	
 			</li>
 			 <li class="nav-item  ">
-				{{-- <a href="#" class="nav-link"><i class="flaticon-dashboard"></i><span>Events & Projects</span></a>	 --}}
+				<a href="{{ route('project.all') }}" class="nav-link"><i class="fas fa-project-diagram"></i><span>Events & Projects</span></a>	
 			</li>
 			<li  class="nav-item  ">
-				{{-- <a href="#" class="nav-link"><i class="flaticon-dashboard"></i><span>Renew / Dues Payment</span></a> --}}
+				<a href="#" class="nav-link"><i class="flaticon-dashboard"></i><span>Renew / Dues Payment</span></a>
 			</li>
-			<li  class="nav-item  " >
-				{{-- <a href="#" class="nav-link"><i class="flaticon-dashboard"></i><span>Help Desk</span></a> --}}
+
+			<li class="nav-item sidebar-nav-item">
+				<a href="#" class="nav-link"><i class="fas fa-hands-helping"></i><span>Help Desk</span></a>
+	
+				<ul class="nav sub-group-menu">
+					<li class="nav-item">
+						<a href="/my_tickets" class="nav-link"><i class="fas fa-angle-right"></i>My Tickets</a>
+					</li>
+
+					<li class="nav-item">
+						<a href="/new-ticket" class="nav-link"><i class="fas fa-angle-right"></i>New Ticket</a>
+					</li>
+					
+				</ul>
+
 			</li>
+
 			<li  class="nav-item  " >
-				{{-- <a href="#" class="nav-link"><i class="flaticon-dashboard"></i><span>Yess Fund</span></a> --}}
+				<a href="#" class="nav-link"><i class="flaticon-dashboard"></i><span>Yess Fund</span></a>
 			</li>
 
 		 </ul>

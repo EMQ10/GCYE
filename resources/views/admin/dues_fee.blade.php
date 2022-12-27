@@ -45,7 +45,7 @@
                        <th>Email</th>
                        <th>Membership Type</th>
                        <th>Reg Fee</th>
-                       <th>Dues Fee</th>
+                       <th>Dues</th>
                        <th width="280px">Action</th>
                    </tr>
                </thead>

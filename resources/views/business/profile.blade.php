@@ -21,18 +21,20 @@
                         </div>
                     </div>
                     <div class="single-info-details">
-                        <div class="item-img">
+                        <div class="item-img text-center">
+                            <h6 style="width: 100%" class="text-center btn btn-outline-info">Profile Picture</h6>
+
                             @if ($member->image == null)
-                            <img src="img/figure/student1.jpg" alt="student">
+                            <img class="bb" src="img/figure/student1.jpg" alt="profile_picture">
                             @else
-                            <img src="/images/{{$member->image}}" alt="student">
+                            <img class="bb" src="/images/{{$member->image}}" alt="profile_picture">
                             @endif
 
                             <div class="mt-4">
                                 <form action="{{ route('image-upload.post',$member->mid) }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="row">
-                    
+
                                         <div class="col-xl-10 col-lg-6 col-12 form-group">
                                             <input type="file" name="image" class="form-control ">
                                             @if ($errors->has('image'))
@@ -50,7 +52,9 @@
 
                         </div>
                         
-                        <div class="item-content">
+                        <div class="item-content" >
+                            <h6 style="width: 100%" class="text-center btn btn-outline-info">Personal Information</h6>
+
                             <div class="header-inline item-header">
                                 <h3 class="text-dark-medium font-medium">Member ID: <strong style="color:green">{{ $member->mid }}</strong></h3>
                                 <div class="header-elements">
@@ -110,14 +114,17 @@
                     
                     <div class="single-info-details">
 
-                        <div class="item-img" >
+                        <div class="item-img text-center" >
+                            <h6 style="width: 100%" class="text-center btn btn-outline-info">Business Logo</h6>
+
                             @if ($member->business == null || $member->business->logo == null)
-                            <img src="img/figure/student1.jpg" alt="student">
+                            <img class="" src="l.png" alt="Business_logo">
                             @else
-                            <img id="logo-img" src="/logos/{{$member->business->logo}}" alt="student">
+                            <img class="bb" id="logo-img" src="/logos/{{$member->business->logo}}" alt="Business_logo">
                             @endif
 
                             <div class="mt-4">
+
                                 <form action="{{ route('logo-upload.post',$member->mid) }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="row">
@@ -142,12 +149,14 @@
                         
                         
                         <div class="item-content">
+                            <h6 style="width: 100%" class="text-center btn btn-outline-info">Business Information</h6>
+
                            
                             <div class="header-inline item-header">
-                                <h3 class="text-dark-medium font-medium">Member ID: <b style="color: green">{{ $member->mid }}</b> </h3>
+                                <h3 class="text-dark-medium font-medium pl-4">Member ID: <b style="color: green">{{ $member->mid }}</b> </h3>
                                 <div class="header-elements">
                                     <ul>
-                                        <li><a href="" class="modal-trigger mb-5" data-toggle="modal" data-target="#sign-up"><i class="far fa-edit"></i></a></li>
+                                        <li><a href="" class="modal-trigger" data-toggle="modal" data-target="#sign-up"><i class="far fa-edit"></i></a></li>
                                        
                                     </ul>
                                 </div>
@@ -162,6 +171,14 @@
                                             <td class="font-medium text-danger">None</td>
                                             @else
                                             <td class="font-medium text-dark-medium">{{ $member->business->company}}</td>
+                                            @endif
+                                        </tr>
+                                        <tr>
+                                            <td>Designation / Position</td>
+                                            @if ($member->business == null ||$member->business->position == null)
+                                            <td class="font-medium text-danger">None</td>
+                                            @else
+                                            <td class="font-medium text-dark-medium">{{ $member->business->position}}</td>
                                             @endif
                                         </tr>
                                         <tr>
@@ -263,6 +280,10 @@
                                                         <label>Name of Company/Organization</label>
                                                         <input  type="text" name="company" placeholder="Name of Company/Organization" class="form-control" />
                                                     </div>
+                                                    <div class="col-12 form-goup">
+                                                        <label>Designation/Position</label>
+                                                        <input   type="text" name="position" class="{{($errors->first('position') ? " form-error" : "")}}" />
+                                                    </div>
                                                     <div class="form-group col-12">
                                                         <label>Company Registration Number</label>
                                                         <input type="text" name="reg_number" placeholder="Company Registration Number" class="form-control">
@@ -317,6 +338,10 @@
                                                     <div class="form-group col-12">
                                                         <label>Name of Company/Organization</label>
                                                         <input  type="text" name="company" value="{{ $member->business->company }}" placeholder="Name of Company/Organization" class="form-control" />
+                                                    </div>
+                                                    <div class="form-group col-12">
+                                                        <label>Designation/Position</label>
+                                                        <input type="text" name="position" value="{{ $member->business->position }}" class="form-control" />
                                                     </div>
                                                     <div class="form-group col-12">
                                                         <label>Company Registration Number</label>
@@ -375,43 +400,48 @@
 
                     <div class="container mt-5">
  
-                        <hr class="mb-5">
+                        <h6 style="width: 100%" class="text-center btn btn-outline-info">Business Registration Document</h6>
 
                         {{-- <i class="fa fa-file-pdf" style="font-size:48px;color:red"></i> --}}
-                        <div class="d-flex flex ">
-                            <div class="p-2"><i class="fa fa-file-pdf" style="font-size:50px;color:red"></i></div>
-                            
-                            <div class="p-4" ><h4 style="color: #fe8103">Upload Business Registration Document</h4></div>
-
-                        </div>
-                            <div class="p-3">
+                        
+                        <div class="row5">
+                            <div class="d-flex flex column5">
+                                <div class="p-2"><i class="fa fa-file-pdf" style="font-size:50px;color:red"></i></div>
+                                
+                                <div class="pl-4" ><h4 class="pt-3 mb-0" style="color: #fe8103">Upload Business Registration Document</h4></div>
+    
+                            </div>
+                            <div class=" column5 mt-5">
                                 <form action="{{ route('file.store',$member->mid) }}" method="POST" enctype="multipart/form-data" id="upload-file" autocomplete="off">
-
-                                {{-- <form method="POST" enctype="multipart/form-data" id="upload-file" action="{{ url('file.store') }}" > --}}
                                        @csrf
 
                                     <div class="row">
-                           
-                                        <div class="col-md-6">
+                                        <div class="col-md-8">
                                             <div class="form-group">
                                                 <input type="file" name="business_doc" placeholder="Choose file" id="file">
-                                                  @error('file')
-                                                  <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                                                  @enderror
+                                                @if ($errors->has('business_doc'))
+                                                <span class="text-danger text-left">{{ $errors->first('business_doc') }}</span>
+                                                @endif
                                             </div>
                                         </div>
                                            
-                                        <div class="col-md-4 ml-4">
-                                            <button type="submit" class="btn btn-primary" id="submit">Submit</button>
+                                        <div class="col-md-4">
+                                            <button type="submit" class=" float-right btn btn-primary" id="submit">Submit</button>
                                         </div>
                                     </div>     
                                 </form>
                             </div>
-                            <div class="col-md-4 ml-4">
-                                <h4>{{ $member->business->business_doc }}</h4>
-                               <a href="{{ route('pdf',$member->mid) }}"> <button class="btn btn-primary">View pdf</button></a>
-                            </div>
 
+                            <div class="column5 text-center">
+                                <h6></h6>
+                                <hr>
+                                @if($member->business == null || $member->business->business_doc == null)
+                                <h4 style="color:red">None</h4>
+                                @else
+                                <h4><i class=" p-2 fa fa-file-pdf" style="font-size:30px;color:red"></i>{{ $member->business->business_doc }} <a href="{{ route('pdf',$member->mid) }}"> <button class="btn btn-primary ml-2">View pdf</button></a></h4>
+                                @endif
+                            </div>
+                        </div>
                       </div>
 
             </div>

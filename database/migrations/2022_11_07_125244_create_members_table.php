@@ -20,7 +20,6 @@ class CreateMembersTable extends Migration
             $table->string('name');
             $table->string('gender');
             $table->string('dob');
-            $table->string('position')->nullable();
             $table->string('email');
             $table->string('phone');
             $table->string('region');

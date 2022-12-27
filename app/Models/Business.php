@@ -12,6 +12,7 @@ class Business extends Model
 
 
         'company',
+        'position',
         'reg_number',
         'ownership_type',
         'telephone',

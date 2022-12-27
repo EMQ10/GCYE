@@ -17,6 +17,7 @@ class CreateBusinessesTable extends Migration
             $table->id();
 
             $table->string('company')->nullable();
+            $table->string('position')->nullable();
             $table->string('reg_number')->nullable();
             $table->string('ownership_type')->nullable();
             $table->string('telephone')->nullable();

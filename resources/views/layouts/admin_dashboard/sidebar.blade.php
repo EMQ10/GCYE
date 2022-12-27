@@ -113,7 +113,21 @@
 			</ul>
 			</li>
 
+			<li class="nav-item  ">
+				<a href="{{ route('project.all') }}" class="nav-link"><i class="fas fa-project-diagram"></i><span>Events & Projects</span></a>	
+			</li>
 			{{-- end Permissions --}}
+
+			<li class="nav-item sidebar-nav-item">
+				<a href="#" class="nav-link"><i class="fas fa-hands-helping"></i><span>Help Desk</span></a>
+	
+				<ul class="nav sub-group-menu">
+					<li class="nav-item">
+						<a href="/tickets" class="nav-link"><i class="fas fa-angle-right"></i>Tickets</a>
+					</li>
+					
+				</ul>
+			</li>
 		 </ul>
 	 </div>
  </div>

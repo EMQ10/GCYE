@@ -39,6 +39,9 @@
                         <strong>Password:</strong>
                         {!! Form::password('password', array('placeholder' => 'Password','class' => 'form-control')) !!}
                     </div>
+                    <div class="col-xl-4 col-lg-6 col-12 form-group" style="display: none">
+                        <input type="text" name="is_admin" value="{{ 1 }}">
+                    </div>
                     <div class="col-xl-6 col-lg-6 col-12 form-group">
                         <strong>Confirm Password:</strong>
                         {!! Form::password('password_confirmation', array('placeholder' => 'Confirm Password','class' => 'form-control')) !!}

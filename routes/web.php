@@ -11,8 +11,10 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Starter\DashboardController;
 use App\Http\Controllers\Business\BusinessController;
 use App\Http\Controllers\Superadmin\SuperAdminController;
-use App\Http\Controllers\EventController;
+use App\Http\Controllers\ProjectController;
 
+use App\Http\Controllers\TicketsController;
+use App\Http\Controllers\CommentsController;
 
 
 
@@ -48,7 +50,7 @@ Route::get('/Register', function () {
     return view('auth/choice');
 });
 
-Route::get('registration{q}', [MemberController::class, 'registration'])->name('registration');
+Route::get('/registration{q}', [MemberController::class, 'registration'])->name('registration');
 
 Route::get('/Message', function () {
     return view('home');
@@ -93,6 +95,13 @@ Route::get('/member/registration_list',[MemberController::class,'reg_list'])->na
 Route::get('/member/reg_approval/{mid}',[MemberController::class,'reg_approve'])->name('reg.approval');
 
 Route::get('sms', [MemberController::class, 'payment'])->name('sms');
+Route::post('event/create',[ProjectController::class, 'save'])->name('create.event');
+Route::get('event/edit/{id}',[ProjectController::class, 'edit'])->name('edit.event');
+Route::put('updating/event/{id}',[ProjectController::class,'save_event'])->name('updating.event');
+
+
+Route::get('tickets/{ticket_id}', [TicketsController::class, 'show']);
+Route::post('comment', [CommentsController::class,'postComment']);
 
 
 
@@ -100,7 +109,8 @@ Route::group(['middleware' => ['role:Admin']], function () {
     
     Route::get('/admin',[AdminController::class,'index'])->name('admin');
 
-
+    Route::get('tickets', [TicketsController::class, 'index']);
+    Route::put('close_ticket/{ticket_id}', [TicketsController::class, 'close']);
 
 });
 
@@ -124,9 +134,14 @@ Route::put('update/business/{mid}', [MemberController::class, 'bus'])->name('bus
 Route::put('member/update/{mid}', [MemberController::class, 'update'])->name('member.update');
 Route::post('file/store/{mid}', [MemberController::class, 'file_store'])->name('file.store');
 Route::get('/display_pdf/{mid}',[MemberController::class, 'pdf'])->name('pdf');
-Route::get('/events',[EventController::class, 'index'])->name('event.index');
-Route::get('event/detail/{id}', [EventController::class, 'details'])->name('details');
-Route::get('/events/{title}',[EventController::class, 'show'])->name('event.show');
+Route::get('/projects',[ProjectController::class, 'index'])->name('project.index');
+Route::get('/event/{id}',[ProjectController::class, 'details'])->name('project.detail');
+Route::get('/all_event',[ProjectController::class, 'events'])->name('project.all');
+
+Route::get('my_tickets', [TicketsController::class, 'userTickets'])->name('my_tickets');
+Route::get('new-ticket', [TicketsController::class,'create']);
+Route::post('new-ticket', [TicketsController::class,'store']);
+
 
 // business
 Route::group(['middleware' => ['role:Business']], function() {

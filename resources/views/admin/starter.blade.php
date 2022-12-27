@@ -44,7 +44,7 @@
                        <th>phone Number</th>
                        <th>Email</th>
                        <th>Membership Type</th>
-                       <th>Dues Fee</th>
+                       <th>Dues</th>
                        <th width="280px">Action</th>
                    </tr>
                </thead>

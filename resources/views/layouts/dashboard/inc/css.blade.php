@@ -2,6 +2,7 @@
 <html class="no-js" lang="">
 
 <head>
+    <base href="">
     <meta charset="utf-8">
     <link href="{{ asset('logo.ico') }}" rel="icon">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -37,9 +38,9 @@
     <link rel="stylesheet" href="{{ URL::asset('css/datepicker.min.css')}}"> 
     
  <!-- Modernize js -->
-    <script src="{{ URL::asset('js/modernizr-3.6.0.min.js') }}"></script>
+    <script src="{{ URL::asset('../js/modernizr-3.6.0.min.js') }}"></script>
 
-    <script type="text/javascript">
+    <script>
         window.setTimeout(function() {
     $(".alert").fadeTo(1000, 0).slideUp(500, function(){
         $(this).remove(); 

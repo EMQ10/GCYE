@@ -120,7 +120,9 @@ class MemberController extends Controller
             ->with('error','No Image Selected');
         }
         else{
-
+            $this->validate($request, [
+                'image' => 'required|image|mimes:jpg,png,jpeg|max:2048',               
+            ]);
             $filename = time() . '.' . $request->image->extension();
 
             $request->image->move(public_path('images'), $filename);
@@ -142,8 +144,14 @@ class MemberController extends Controller
             return back()
             ->with('error','Please Update Business Info Before Uploading Business Logo');
         }
+        elseif($request->logo == null){
+            return back()
+            ->with('error','No Business Logo selected');
+        }
         else{
-
+            $this->validate($request, [
+                'logo' => 'required|image|mimes:jpg,png,jpeg|max:2048',               
+            ]);
             if($request->logo == null){
                 return back()
                 ->with('error','No Logo Selected');
@@ -188,7 +196,6 @@ class MemberController extends Controller
         $member->name = $request->name;
         $member->gender = $request->gender;
         $member->dob = $request->dob;
-        $member->position = $request->positon;
         $member->email = $request->email;
         $member->phone = $request->phone;
 
@@ -257,6 +264,7 @@ class MemberController extends Controller
         $user->name = $data->name;
         $user->email = $data->email;
         $user->password = Hash::make($pass);
+        $user->is_admin = 0;
 
         $user->save();
         $user->assignRole($role);
@@ -273,7 +281,6 @@ class MemberController extends Controller
     
     public function reg_approve($mid){
         $member = Member::find($mid);
-        // dd($member);
         $member->reg_fee = "Yes";
         $member->update();
 
@@ -326,6 +333,7 @@ class MemberController extends Controller
             $business = new Business;
   
             $business->company = $request->company;
+            $business->position = $request->positon;
             $business->reg_number = $request->reg_number;
             $business->ownership_type = $request->ownership_type;
             $business->telephone = $request->telephone;
@@ -346,11 +354,7 @@ class MemberController extends Controller
 
         $member = Member::find($mid);
 
-        // dd($member);
-            // $business = Business::where('member_mid',$member)->get();
             $input = $request->all();
-
-            // dd($input);
 
             $member->business->update($input);
 
@@ -362,7 +366,6 @@ class MemberController extends Controller
 
     public function file_store(Request $request, $mid)
     {
-        //  dd('hiiiii');
 
         if($request->business_doc == null){
             return back()
@@ -374,12 +377,8 @@ class MemberController extends Controller
 
 
             $this->validate($request, [
-                'business_doc' => 'required|mimes:pdf|max:2048',               
+                'business_doc' => 'required|mimes:pdf|max:2048M',               
             ]);
-        // $validatedData = $request->validate([
-        //  'business_doc' => 'required|PDF|max:2048',
- 
-        // ]);
  
         $name = $request->file('business_doc')->getClientOriginalName();
 
@@ -390,14 +389,8 @@ class MemberController extends Controller
  
         $member->business->business_doc = $name;
         $member->business->business_doc_path = $path;
-                // $business->logo = $filename;
         $member->business->update();
 
-        // $save = new File;
- 
-        // $save->name = $name;
-        // $save->path = $path;
- 
         return back()->with('success', 'File Has been uploaded successfully');
     }
     }
@@ -405,7 +398,6 @@ class MemberController extends Controller
         $member = Member::find($mid);
         $filename = $member->business->business_doc_path;
 
-        // dd($filename);
 
         return Response::make(file_get_contents($filename), 200, [
                        'content-type'=>'application/pdf',
