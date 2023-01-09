@@ -32,12 +32,13 @@ class UserTableSeeder extends Seeder
         // $user->assignRole([$role->id]);
 
         $user = User::create([
-            'name' => 'member', 
-            'email' => 'member@gmail.com',
+            'member_mid' => 'superadmin',
+            'name' => 'superadmin', 
+            'email' => 'superadmin@gmail.com',
             'password' => Hash::make('12345678')
         ]);
          
-        $role = Role::find(2);
+        $role = Role::find(4);
 
         $permissions = Permission::pluck('id', 'id')->all();
    

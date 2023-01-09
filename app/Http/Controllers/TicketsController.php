@@ -63,7 +63,7 @@ class TicketsController extends Controller
         ]);
         $ticket->save();
         // $mailer->sendTicketInformation(Auth::user(), $ticket);
-        return redirect()->route('my_tickets')->with("status", "A ticket with ID: #$ticket->ticket_id has been opened.");
+        return redirect()->route('my_tickets')->with("success", "A ticket with ID: #$ticket->ticket_id has been opened.");
     }
 
 
@@ -108,4 +108,6 @@ class TicketsController extends Controller
         // $mailer->sendTicketStatusNotification($ticketOwner, $ticket);
         return redirect()->back()->with("status", "The ticket has been closed.");
     }
+
+    
 }

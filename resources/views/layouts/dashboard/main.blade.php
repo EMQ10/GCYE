@@ -34,6 +34,27 @@
                         <li>Member</li>
                     </ul>
                   </div>
+                  @if (\Session::has('success'))
+                  <div class="alert alert-success" role="alert">
+                      <p class="mb-0" style="text-align: center; text-transform:uppercase ">{{ \Session::get('success') }}</p>
+                  </div>
+                  @endif
+                  @if (\Session::has('error'))
+                  <div class="alert alert-danger" role="alert">
+                      <p class="mb-0" style="text-align: center; text-transform:uppercase ">{{ \Session::get('error') }}</p>
+                  </div>
+                  @endif
+                  
+                  @if (count($errors) > 0)
+                  <div class="alert alert-danger">
+                      <strong>Opps!</strong> Something went wrong, please check below errors.<br><br>
+                      <ul>
+                          @foreach ($errors->all() as $error)
+                              <li>{{ $error }}</li>
+                          @endforeach
+                      </ul>
+                  </div>
+              @endif
                   @yield('content')
 
                   <!-- Social Media End Here -->

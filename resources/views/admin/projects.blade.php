@@ -4,17 +4,6 @@
 
 @section('content')
 
-            @if (\Session::has('success'))
-            <div class="alert alert-success" role="alert">
-                <p class="mb-0" style="text-align: center; text-transform:uppercase ">{{ \Session::get('success') }}</p>
-            </div>
-            @endif
-            @if (\Session::has('errors'))
-            <div class="alert alert-danger" role="alert">
-                <p class="mb-0" style="text-align: center; text-transform:uppercase ">{{ \Session::get('errors') }}</p>
-            </div>
-            @endif
-
 
                 <div class="card">
                     <div class="card-body">
@@ -23,6 +12,16 @@
                                 <h3>Projects</h3>
                                 <hr class="hr">
 
+                                @if (count($errors) > 0)
+                                <div class="alert alert-danger">
+                                    <strong>Error Creating Project!</strong> All fields where not filled.<br><br>
+                                    {{-- <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul> --}}
+                                </div>
+                            @endif
                             </div>
                             
                            <div class="dropdown">
@@ -85,6 +84,17 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
+
+                                @if (count($errors) > 0)
+                                <div class="alert alert-danger">
+                                    <strong>Error Creating Project!</strong> All fields where not filled.<br><br>
+                                    {{-- <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul> --}}
+                                </div>
+                            @endif
                                     <div>
                                         <h5 style="color: red">Please fill all the details of the form.</h5>
                                     </div>

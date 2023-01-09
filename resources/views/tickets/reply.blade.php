@@ -20,7 +20,11 @@
                     </div>
 
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        @if ($ticket->status == 'Closed')
+                            <h6 style="color: red">Your Ticket has been closed.</h6>
+                            @else
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        @endif
                     </div>
                 </form>
             </div>

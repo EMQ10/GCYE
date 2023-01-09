@@ -25,7 +25,7 @@
                         <div class="form-group {{ $errors->has('title') ? ' has-error' : '' }}">
                             <label for="title" class="col-md-4 control-label">Title</label>
 
-                            <div class="col-md-6">
+                            <div class="col-xl-6 col-lg-6 col-12 ">
                                 <input id="title" type="text" class="form-control" name="title" value="{{ old('title') }}">
 
                                 @if ($errors->has('title'))
@@ -39,7 +39,7 @@
                         <div class="form-group {{ $errors->has('category') ? ' has-error' : '' }}">
                             <label for="category" class="col-md-4 control-label">Category</label>
 
-                            <div class="col-md-6">
+                            <div class="col-xl-6 col-lg-6 col-12 form-input">
                                 <select id="category" type="category" class="form-control" name="category">
                                     <option value="">Select Category</option>
                                     @foreach ($categories as $category)
@@ -58,7 +58,7 @@
                         <div class="form-group {{ $errors->has('priority') ? ' has-error' : '' }}">
                             <label for="priority" class="col-md-4 control-label">Priority</label>
 
-                            <div class="col-md-6">
+                            <div class="col-xl-6 col-lg-6 col-12 form-input">
                                 <select id="priority" type="" class="form-control" name="priority">
                                     <option value="">Select Priority</option>
                                     <option value="low">Low</option>
@@ -77,7 +77,7 @@
                         <div class="form-group {{ $errors->has('message') ? ' has-error' : '' }}">
                             <label for="message" class="col-md-4 control-label">Message</label>
 
-                            <div class="col-md-6">
+                            <div class="col-xl-6 col-lg-6 col-12 form-input">
                                 <textarea rows="10" id="message" class="form-control" name="message"></textarea>
 
                                 @if ($errors->has('message'))

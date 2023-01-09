@@ -2,11 +2,7 @@
 @section('content')
 {{-- <div class="container"> --}}
     <div class="justify-content-center">
-        @if (\Session::has('success'))
-            <div class="alert alert-success">
-                <p style="text-align: center">{{ \Session::get('success') }}</p>
-            </div>
-        @endif
+       
         {{-- <div class="card">
             <div class="card-header">Users
                 <span class="float-right">
@@ -138,4 +134,7 @@
 
     </div>
 {{-- </div> --}}
+
+
+
 @endsection

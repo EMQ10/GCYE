@@ -40,11 +40,11 @@
  <!-- Modernize js -->
     <script src="{{ URL::asset('../js/modernizr-3.6.0.min.js') }}"></script>
 
-    <script>
+    {{-- <script>
         window.setTimeout(function() {
     $(".alert").fadeTo(1000, 0).slideUp(500, function(){
         $(this).remove(); 
     });
 }, 5000);
-        </script>
+        </script> --}}
 </head>

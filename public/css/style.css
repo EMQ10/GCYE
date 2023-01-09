@@ -265,7 +265,7 @@ select option{
 .card {
   padding-bottom: 30px;
   border: none;
-  height: 100%;
+  height: 100% !important;
   background-color: initial;
 }
 .card-body {
@@ -2668,8 +2668,8 @@ ul {
 }
 /*=============== 6.2 Notice Board ==================*/
 .notice-board-wrap {
-  max-height: 900px;
-  /* overflow-y: scroll; */
+  max-height: 300px;
+  overflow-y: scroll;
   padding-right: 20px;
 }
 .notice-board-wrap .notice-list {

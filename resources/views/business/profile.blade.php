@@ -1,16 +1,6 @@
 @extends('layouts.dashboard.main')
 
 @section('content')
-            @if (\Session::has('success'))
-            <div class="alert alert-success" role="alert">
-                <p class="mb-0" style="text-align: center; text-transform:uppercase ">{{ \Session::get('success') }}</p>
-            </div>
-            @endif
-            @if (\Session::has('error'))
-            <div class="alert alert-danger" role="alert">
-                <p class="mb-0" style="text-align: center; text-transform:uppercase ">{{ \Session::get('error') }}</p>
-            </div>
-            @endif
 
               <div class="card height-auto">
                 <div class="card-body plan">
@@ -59,10 +49,7 @@
                                 <h3 class="text-dark-medium font-medium">Member ID: <strong style="color:green">{{ $member->mid }}</strong></h3>
                                 <div class="header-elements">
                                     <ul>
-                                        {{-- <li><a href="#"><i class="far fa-edit"></i></a></li> --}}
-                                        {{-- <li><a href="#"><i class="fas fa-print"></i></a></li>
-                                        <li><a href="#"><i class="fas fa-download"></i></a></li> --}}
-                                    </ul>
+                                       </ul>
                                 </div>
                             </div>
 

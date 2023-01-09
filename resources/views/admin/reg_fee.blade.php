@@ -2,12 +2,7 @@
 
 @section('content')
 
-@if (\Session::has('success'))
-						<div class="alert alert-success" role="alert">
-							<br>
-							<p style="text-align: center; text-transform:uppercase ">{{ \Session::get('success') }}</p>
-						</div>
-						 @endif
+
 <div class="card height-auto">
     <div class="card-header">Member Registration Fee Confirmation list
        @can('member-create')

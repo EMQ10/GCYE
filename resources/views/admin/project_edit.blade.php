@@ -4,17 +4,6 @@
 
 @section('content')
 
-            @if (\Session::has('success'))
-            <div class="alert alert-success" role="alert">
-                <p class="mb-0" style="text-align: center; text-transform:uppercase ">{{ \Session::get('success') }}</p>
-            </div>
-            @endif
-            @if (\Session::has('errors'))
-            <div class="alert alert-danger" role="alert">
-                <p class="mb-0" style="text-align: center; text-transform:uppercase ">{{ \Session::get('error') }}</p>
-            </div>
-            @endif
-
 
                 <div class="card edit">
                     <div class="card-body">

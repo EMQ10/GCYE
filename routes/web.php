@@ -110,7 +110,9 @@ Route::group(['middleware' => ['role:Admin']], function () {
     Route::get('/admin',[AdminController::class,'index'])->name('admin');
 
     Route::get('tickets', [TicketsController::class, 'index']);
-    Route::put('close_ticket/{ticket_id}', [TicketsController::class, 'close']);
+    Route::post('close_ticket/{ticket_id}', [TicketsController::class, 'close'])->name('close');
+    // Route::post('close_ticket/{ticket_id}', 'TicketsController@close');
+
 
 });
 
@@ -155,3 +157,20 @@ Route::group(['middleware' => ['role:Business']], function() {
 });
 
 
+Route::get('send-mail', function () {
+    $subject = 'Almost there';
+    $email = 'agivoc3@gmail.com';
+
+    $details = [
+
+        'subject' => $subject,
+        'title' => 'Yesss',
+        'body' => 'This is for testing email using smtp
+        yesssss.
+        toooooo'
+    ];
+   
+    \Mail::to($email)->send(new \App\Mail\MyTestMail($details));
+   
+    dd("Email is Sent.");
+});

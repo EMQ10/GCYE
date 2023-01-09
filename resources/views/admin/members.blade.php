@@ -3,12 +3,7 @@
 @section('content')
 <div class="container">
     <div class="justify-content-center">
-        @if (\Session::has('success'))
-						<div class="alert alert-success" role="alert">
-							<br>
-							<p style="text-align: center; text-transform:uppercase ">{{ \Session::get('success') }}</p>
-						</div>
-						 @endif
+
 <div class="card height-auto">
     <div class="card-header">Approved Members
        @can('member-create')

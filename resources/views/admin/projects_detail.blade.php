@@ -1,11 +1,6 @@
 @extends("layouts.admin_dashboard.main")
 @section('content')
 
-@if (\Session::has('success'))
-<div class="alert alert-success" role="alert">
-    <p class="mb-0" style="text-align: center; text-transform:uppercase ">{{ \Session::get('success') }}</p>
-</div>
-@endif
         
         <img class="hi" style="background-color: white; height:50px; width:100%" src="../orange.jpeg" alt="student">
 

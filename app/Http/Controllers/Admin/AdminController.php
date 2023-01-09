@@ -9,7 +9,9 @@ use DB;
 use App\Models\User;
 use App\Models\Member;
 Use Auth;
+use App\Models\Project;
 
+use App\Models\Ticket;
 
 class AdminController extends Controller
 {
@@ -25,8 +27,30 @@ class AdminController extends Controller
     {
         //
         $members = Member::all();
+        // $numb = array($members->phone);
 
-        return view ('admin.dashboard',compact('members'));
+        // foreach($members as $number){
+
+        //     $numb = array($number->phone);
+        //    dd($numb);
+        //    $doctor_result = Doctor::all()->toArray();
+
+        // }
+
+        $result = DB::table('members')->get('phone');
+        $resultArray = $result->toArray();
+        // dd($resultArray);
+
+        $tickets = Ticket::orderBy('id', 'desc')->paginate(3);
+
+        $businesscount = member::Where('membership_type','Business')->count();
+        $usercount = User::get()->count();
+        $startercount = member::Where('membership_type','Starter')->count();
+        // $businesscount = member::Where('membership_type','Business')->count();
+        $projects = Project::orderBy('id', 'desc')->paginate(3);
+
+            // dd($businesscount);
+        return view ('admin.dashboard',compact('members','businesscount','usercount','startercount','projects','tickets'));
     }
    
 
